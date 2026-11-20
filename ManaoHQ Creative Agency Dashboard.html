@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ManaoHQ Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3E88B0", // Overriding primary to match user request for deep muted blue
+                        "primary-hover": "#2c6a8c",
+                        "secondary": "#893eb1", // Keeping original primary as secondary accent
+                        "background-light": "#F4F2ED",
+                        "background-dark": "#1a141e",
+                        "surface-white": "#FFFFFF",
+                        "border-subtle": "#C0CFDB",
+                        "text-main": "#1F2937",
+                        "text-muted": "#6DA5CA",
+                        "badge-draft": "#ECDCB7",
+                        "badge-review": "#D1E3F5",
+                        "badge-published": "#C8E6C9",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "0.75rem", 
+                        "xl": "1rem", 
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C0CFDB; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3E88B0; 
+        }
+    </style>
+</head>
+<body class="bg-background-light text-text-main h-screen overflow-hidden flex">
+<!-- Sidebar -->
+<aside class="w-64 h-full bg-surface-white border-r border-border-subtle flex flex-col flex-shrink-0 z-20">
+<!-- Logo Area -->
+<div class="h-20 flex items-center px-8 border-b border-border-subtle/30">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<div>
+<h1 class="text-text-main text-lg font-bold leading-none tracking-tight">ManaoHQ</h1>
+<p class="text-text-muted text-xs font-medium mt-0.5">Creative Agency</p>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+<!-- Active Link -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#e6f0f5] text-primary group transition-all duration-200" href="#">
+<span class="material-symbols-outlined filled">grid_view</span>
+<span class="font-semibold text-sm">Overview</span>
+</a>
+<!-- Inactive Links -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-muted hover:bg-[#f5f7fa] hover:text-primary transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">campaign</span>
+<span class="font-medium text-sm">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-muted hover:bg-[#f5f7fa] hover:text-primary transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">description</span>
+<span class="font-medium text-sm">Content</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-muted hover:bg-[#f5f7fa] hover:text-primary transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">bar_chart</span>
+<span class="font-medium text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-muted hover:bg-[#f5f7fa] hover:text-primary transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">group</span>
+<span class="font-medium text-sm">Team</span>
+</a>
+<div class="pt-4 mt-4 border-t border-border-subtle/30">
+<p class="px-4 text-xs font-bold text-text-muted uppercase tracking-wider mb-2">System</p>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-muted hover:bg-[#f5f7fa] hover:text-primary transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</div>
+</nav>
+<!-- User Profile -->
+<div class="p-4 border-t border-border-subtle/30">
+<button class="flex items-center gap-3 w-full p-2 rounded-xl hover:bg-[#f5f7fa] transition-colors text-left">
+<div class="w-10 h-10 rounded-full bg-cover bg-center border border-border-subtle" data-alt="Portrait of a woman with curly hair smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCy-xrK1RMq4v-66lJK7pT68t_PGYGKoua9WXYmhjLFKl9IpTllAwdcgNA8zEAZl7MKgJj0Z_2YcDLjA36Ygf0P3jgLPrfrY8L9zn8ONjTyqPEVPZDUPsT_sx35BsnxiQ8-MF2LDbFHK9S9OTCBc7WYozEci6SrzT7cTXKCZrjgBgRALvlAE2rBi7HS7aahorEKVtdQSLZq7DTgnzzNaEtuZ4jukFbb8_Mf4133OiZiX-PPcOzn9Ayh1ugKnAg0MwfLD_EmX1DMsTA')"></div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-text-main truncate">Elara V.</p>
+<p class="text-xs text-text-muted truncate">Admin</p>
+</div>
+<span class="material-symbols-outlined text-text-muted">unfold_more</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 h-full overflow-y-auto bg-background-light relative">
+<div class="max-w-[1200px] mx-auto px-8 py-10 flex flex-col gap-10">
+<!-- Header Section -->
+<header class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-4xl font-extrabold text-text-main tracking-tight">Overview</h2>
+<p class="text-text-muted text-base font-medium">Welcome back, here is what's happening today.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-white border border-border-subtle text-text-muted hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-white border border-border-subtle text-text-muted hover:text-primary hover:border-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-red-500 border border-white"></span>
+</button>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-xl shadow-sm transition-all duration-200 font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New Post</span>
+</button>
+</div>
+</header>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-white rounded-2xl p-6 border border-border-subtle flex flex-col gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-full bg-[#e6f0f5] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">edit_document</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+2.4%</span>
+</div>
+<div>
+<p class="text-text-muted text-sm font-semibold uppercase tracking-wider mb-1">Total Drafts</p>
+<p class="text-3xl font-bold text-text-main">12</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-white rounded-2xl p-6 border border-border-subtle flex flex-col gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-full bg-[#fff4e5] flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined">rate_review</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+12%</span>
+</div>
+<div>
+<p class="text-text-muted text-sm font-semibold uppercase tracking-wider mb-1">Active Reviews</p>
+<p class="text-3xl font-bold text-text-main">5</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-white rounded-2xl p-6 border border-border-subtle flex flex-col gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-full bg-[#f3e5f5] flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+5.3%</span>
+</div>
+<div>
+<p class="text-text-muted text-sm font-semibold uppercase tracking-wider mb-1">Published Posts</p>
+<p class="text-3xl font-bold text-text-main">128</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-white rounded-2xl p-6 border border-border-subtle flex flex-col gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-full bg-[#e3f2fd] flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+18.2%</span>
+</div>
+<div>
+<p class="text-text-muted text-sm font-semibold uppercase tracking-wider mb-1">Monthly Views</p>
+<p class="text-3xl font-bold text-text-main">45.2k</p>
+</div>
+</div>
+</div>
+<!-- Recent Content Table -->
+<div class="bg-surface-white border border-border-subtle rounded-2xl overflow-hidden shadow-sm">
+<div class="px-6 py-5 border-b border-border-subtle/50 flex items-center justify-between">
+<h3 class="text-lg font-bold text-text-main">Recent Content</h3>
+<button class="text-primary text-sm font-bold hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full min-w-[800px]">
+<thead>
+<tr class="bg-gray-50/50">
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted uppercase tracking-wider w-2/5">Title</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted uppercase tracking-wider">Author</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted uppercase tracking-wider">Category</th>
+<th class="px-6 py-4 text-left text-xs font-bold text-text-muted uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-right text-xs font-bold text-text-muted uppercase tracking-wider">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle/30">
+<!-- Row 1 -->
+<tr class="group hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-text-main font-bold text-sm">Q3 Marketing Strategy</span>
+<span class="text-text-muted text-xs">Updated 2 hours ago</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Team member" class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" data-alt="Portrait of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjPezJ2hM1OC_o81xezF4uhCmrpSlirHWyPMpJDnAjGhIAXlWP7nqDE8Uf2NT2SldYMZHpsylLjlruXNgaQD7GrccKolJpzeiCveIkCabiPXooyKWBB5ez8HSPj7wVaAeLKV_I2PbjnfPEA9CQssrcCsQ7uSfuatYLl2rL3PxYbvFVEytx3bENXTH0KiV2qMtXONEJEe26IuULpyeyd_QNQJiASHd59-_hUhEjj9_GdvWtATPtq7zv23RvVZisM59gwrkTwUySGUo"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-text-main text-sm font-medium">Oct 24, 2023</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                        Strategy
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-[#8a6d3b] bg-[#ECDCB7]/50">
+<span class="w-1.5 h-1.5 rounded-full bg-[#8a6d3b]"></span>
+                                        Draft
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-muted hover:text-primary p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-text-main font-bold text-sm">Summer Campaign Launch</span>
+<span class="text-text-muted text-xs">Scheduled for Friday</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Team member" class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" data-alt="Portrait of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrn7qf3XUMuqM66GWPpmL9D-7nGeZx2qGh56ak1z8iGFdBcU3xzjsN0AHZGnmDlMZTGu3weMB-VaDF1sqDOigl4hZvSGO8G6L8hrKJILGkCeulzrY3MlZnUoyz6TdfFXttS5FnaCX46uzVUFseuNWFMzAqH0YM2pfsuYAaCrCzTlobgKIixOLOeMScpIelNGMHMIrE6M9P_o5tJiJdRGsHf755kKoeaqMlM3shRgTJUjEE-T0VxF27T-a7TbvJpuGM59NQBHkeuL4"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-text-main text-sm font-medium">Oct 22, 2023</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                        Social
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-[#2E7D32] bg-[#C8E6C9]/50">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span>
+                                        Published
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-muted hover:text-primary p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-text-main font-bold text-sm">Client Case Study</span>
+<span class="text-text-muted text-xs">Awaiting feedback</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Team member" class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" data-alt="Portrait of a woman with short hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu4Z_UHzn9cOmDfNCbSVD1D0MYnc31hxc5CmQ93y0NNAr75JpjEjssymA29SquLkuzKBret-hH1xAXXUNc0MfBZn_xq8We3Ddg6MvZY8AG8dKxklykzlasNKZjgGl0bW5Rlb_jbFvH4vqbRQRh_a-hGdYCLffwit5oEPPq5fIz35bfn0xGqTeoWBqtNPizwfUCz8QNux4LmEOy3DqhOL1BNjR4ukKYXqbU0jQxptZtsrx8p26JD4ie9k6OmdJAKbg7VwiV_RJPm0Y"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-text-main text-sm font-medium">Oct 20, 2023</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                        Case Study
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-[#1565C0] bg-[#D1E3F5]/60">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1565C0]"></span>
+                                        In Review
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-muted hover:text-primary p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-text-main font-bold text-sm">Brand Guidelines V2</span>
+<span class="text-text-muted text-xs">Needs approval</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Team member" class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" data-alt="Portrait of a man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUUnkEiq5WEgJ9PDECykaUGtUoh6eqhs-14knpleSnFZ8AMt2qVGzTGpnWi_QXCW-GrLw0BPhKedEEaJphnLTinrTv9nbsqdhl06p0IxmYR7hqFyxdrfARTW8Cr3Q-P4kvHz3CB-1UzAdB37FeeWJEKEpdCcBtWy2t2Yct984HnentTZ6PyIzABsSR6QhEWB8I-ryXGgscC_GTGFQU691ynRfo__PkhkDvbKGkYvEgo_PSrr5711v18OyzpMv2ofkEijehbEWk8p8"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-text-main text-sm font-medium">Oct 18, 2023</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                        Branding
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-[#8a6d3b] bg-[#ECDCB7]/50">
+<span class="w-1.5 h-1.5 rounded-full bg-[#8a6d3b]"></span>
+                                        Draft
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-muted hover:text-primary p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-text-main font-bold text-sm">October Newsletter</span>
+<span class="text-text-muted text-xs">Sent to 45k subscribers</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Team member" class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" data-alt="Portrait of a woman smiling slightly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxT163LH4SC6DG2Ljn0bX7kV9Tvn04eYErkZunt4-TACf4RywbZV_N7VqrgQ_PajjzRmSgLn3nJjZwm3QNyaRmiG25rvaPL8BbZtkM5Giy-AyeI5DoOalWTGsWWmkDzdzTMXri8Ae6_SUYJryDbvxwZ9T9XTaaDYecOI8VxMNggrgPcOSJP5c8_u4f2GJjS-RppyEalBZE4z2Zo1Fv5P92s8nFqQ2hh-Tm53mCetWYJvRNArk0oemDJmLkNxT-qJ73-820uNL2KTk"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-text-main text-sm font-medium">Oct 15, 2023</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                        Email
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-[#2E7D32] bg-[#C8E6C9]/50">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span>
+                                        Published
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-muted hover:text-primary p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer area for legal/extra links if needed, kept minimal -->
+<div class="flex justify-between items-center py-6 text-xs text-text-muted mt-auto">
+<p>© 2023 ManaoHQ Agency. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</main>
+</body></html>

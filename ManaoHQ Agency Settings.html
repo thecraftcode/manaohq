@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ManaoHQ Agency Settings</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#893eb1",
+                        "primary-dark": "#6b2c8e",
+                        "background-cream": "#F4F2ED",
+                        "card-border": "#C0CFDB",
+                        "deep-blue": "#3E88B0",
+                        "deep-blue-hover": "#2c6a8c",
+                        "text-charcoal": "#1F2937",
+                        "text-muted": "#6B7280",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-cream text-text-charcoal antialiased">
+<div class="flex min-h-screen w-full flex-row overflow-hidden">
+<!-- Sidebar -->
+<aside class="flex w-64 flex-col justify-between border-r border-[#E5E7EB] bg-white px-4 py-6 shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10 hidden md:flex h-screen sticky top-0">
+<div class="flex flex-col gap-8">
+<!-- Logo Section -->
+<div class="flex items-center gap-3 px-2">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-deep-blue shadow-md text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-text-charcoal text-base font-bold leading-tight">ManaoHQ</h1>
+<p class="text-text-muted text-xs font-medium">Creative Agency</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-1">
+<a class="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-text-muted transition-colors hover:bg-gray-50 hover:text-text-charcoal" href="#">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-text-muted transition-colors hover:bg-gray-50 hover:text-text-charcoal" href="#">
+<span class="material-symbols-outlined text-[24px]">folder_open</span>
+<span class="text-sm font-medium">Projects</span>
+</a>
+<a class="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-text-muted transition-colors hover:bg-gray-50 hover:text-text-charcoal" href="#">
+<span class="material-symbols-outlined text-[24px]">campaign</span>
+<span class="text-sm font-medium">Campaigns</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-3 rounded-xl bg-primary/10 px-3 py-2.5 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">settings</span>
+<span class="text-sm font-bold">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col gap-2 border-t border-gray-100 pt-4">
+<a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-text-muted transition-colors hover:bg-red-50 hover:text-red-600" href="#">
+<span class="material-symbols-outlined text-[24px]">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+<div class="mt-4 flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="User profile picture of a woman smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCogCkQrrmF_Y8n1JGEETbjsL72zzINBa76Rs4RuLHcznE3jw0gZJDFj8U1N1bEJ5aI9_Nm8uGrlbvHHvJH7dIn72em0QbF85_Qiy0Ymp5scaZtNaV-0slypDHOx4LnvOGdBBF87vxVPSu7f1Ghs41vXCUBL-TgIfdi79XFrnVv0wfm3NXSTe2Uku2EYmeXfqcEhRnXZcY48eS1YqG3-xH7DaEnuuRzy3XOVq0sqvJIP9i8UuWD6DJgEJ0OjeK061_L2IT0nMEHvX4");'></div>
+<div class="overflow-hidden">
+<p class="truncate text-sm font-bold text-text-charcoal">Elara V.</p>
+<p class="truncate text-xs text-text-muted">Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-background-cream">
+<!-- Header -->
+<header class="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-gray-200/50 bg-background-cream/80 px-8 backdrop-blur-md">
+<div class="flex flex-col">
+<h2 class="text-2xl font-bold text-text-charcoal">Agency Settings</h2>
+<p class="text-sm text-text-muted">Manage your agency profile and public details</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full bg-white p-2 text-text-muted shadow-sm transition-colors hover:text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-full bg-white p-2 text-text-muted shadow-sm transition-colors hover:text-primary md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<div class="px-6 py-10 md:px-12 lg:px-24">
+<div class="mx-auto max-w-3xl">
+<!-- Settings Form Card -->
+<div class="overflow-hidden rounded-2xl border border-card-border bg-white shadow-sm">
+<!-- Cover Photo Area -->
+<div class="relative h-32 w-full bg-gradient-to-r from-gray-100 to-gray-200">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#C0CFDB 1px, transparent 1px); background-size: 20px 20px;"></div>
+<button class="absolute bottom-4 right-4 flex items-center gap-2 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-medium text-text-charcoal backdrop-blur-sm transition hover:bg-white">
+<span class="material-symbols-outlined text-[16px]">add_photo_alternate</span>
+                            Edit Cover
+                        </button>
+</div>
+<!-- Avatar Upload -->
+<div class="relative -mt-12 px-8">
+<div class="group relative inline-block">
+<div class="h-24 w-24 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-md">
+<img alt="ManaoHQ Agency Logo showing abstract shapes" class="h-full w-full object-cover" data-alt="ManaoHQ Agency Logo showing abstract shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAwLW9TNWfiyfMVsyJ9nGDx40GwFZ3B_mEzb8i0BxfhBJTdkqeUnauF3caS28Fv1cWzdJDRAw5uwm8jaa8IRrzh1fPvyOxjxS1sO-YxHKJCZVbZYKqX1yV82xoQBZx-c9k1lXZ3kx-EK2z339FNT_xNkWkgY4WJmzjQ29uPzyMheNWc0mpGJh7pOSzMPzbNLTeQ95uWVcXd5HWugqZEsYbcE82RwrDRoXWW2Nfobq0GO_Yve_8uxvCFJjxGOnTvjOmR1BtbR2fGZc"/>
+</div>
+<button class="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 rounded-full bg-deep-blue p-2 text-white shadow-lg transition hover:bg-deep-blue-hover">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Form Content -->
+<div class="flex flex-col gap-8 p-8">
+<!-- Section 1 -->
+<div class="grid gap-6 md:grid-cols-2">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-text-charcoal" for="agencyName">Agency Name</label>
+<input class="h-12 w-full rounded-xl border-card-border bg-white px-4 text-text-charcoal placeholder-text-muted focus:border-primary focus:ring-1 focus:ring-primary/20" id="agencyName" placeholder="e.g. Design Studio" type="text" value="ManaoHQ"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-text-charcoal" for="contactEmail">Contact Email</label>
+<input class="h-12 w-full rounded-xl border-card-border bg-white px-4 text-text-charcoal placeholder-text-muted focus:border-primary focus:ring-1 focus:ring-primary/20" id="contactEmail" placeholder="contact@agency.com" type="email" value="hello@manao.hq"/>
+</div>
+</div>
+<!-- Section 2 -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-text-charcoal" for="website">Website URL</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-text-muted select-none material-symbols-outlined text-[20px]">link</span>
+<input class="h-12 w-full rounded-xl border-card-border bg-white pl-11 pr-4 text-text-charcoal placeholder-text-muted focus:border-primary focus:ring-1 focus:ring-primary/20" id="website" placeholder="https://" type="url" value="https://manao.hq"/>
+</div>
+</div>
+<!-- Section 3 -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-text-charcoal" for="bio">
+                                Bio 
+                                <span class="ml-1 text-xs font-normal text-text-muted">(Publicly visible)</span>
+</label>
+<textarea class="w-full resize-none rounded-xl border-card-border bg-white p-4 text-text-charcoal placeholder-text-muted focus:border-primary focus:ring-1 focus:ring-primary/20" id="bio" placeholder="Tell us about your agency..." rows="4">We are a creative agency focused on minimalist design and high-end branding experiences for tech startups.</textarea>
+<p class="text-right text-xs text-text-muted">240/500 characters</p>
+</div>
+<!-- Divider -->
+<hr class="border-gray-100"/>
+<!-- Preferences -->
+<div class="flex flex-col gap-4">
+<h3 class="text-sm font-semibold text-text-charcoal">Preferences</h3>
+<label class="flex cursor-pointer items-start gap-4 rounded-xl border border-gray-100 p-4 transition hover:bg-gray-50">
+<div class="flex h-5 items-center">
+<input checked="" class="h-5 w-5 rounded border-gray-300 text-deep-blue focus:ring-deep-blue/30" type="checkbox"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-text-charcoal">Public Profile Visibility</span>
+<span class="text-xs text-text-muted">Allow clients to find your agency in the public directory.</span>
+</div>
+</label>
+<label class="flex cursor-pointer items-start gap-4 rounded-xl border border-gray-100 p-4 transition hover:bg-gray-50">
+<div class="flex h-5 items-center">
+<input class="h-5 w-5 rounded border-gray-300 text-deep-blue focus:ring-deep-blue/30" type="checkbox"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-text-charcoal">Email Notifications</span>
+<span class="text-xs text-text-muted">Receive updates about new project inquiries.</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-end gap-4 border-t border-gray-100 bg-gray-50/50 px-8 py-6">
+<button class="rounded-lg px-6 py-2.5 text-sm font-semibold text-text-muted transition hover:bg-gray-100 hover:text-text-charcoal">
+                            Cancel
+                        </button>
+<button class="rounded-lg bg-deep-blue px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-deep-blue-hover hover:shadow-md focus:outline-none focus:ring-2 focus:ring-deep-blue/50 focus:ring-offset-2">
+                            Save Changes
+                        </button>
+</div>
+</div>
+<div class="mt-8 flex justify-center pb-8">
+<p class="text-xs text-text-muted">Need help? <a class="text-deep-blue hover:underline" href="#">Contact Support</a></p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

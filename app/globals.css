@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.ts";
+
+:root {
+  --background: #F4F2ED;
+  --foreground: #1F2937;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a141e;
+    --foreground: #F4F2ED;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-manrope), 'Manrope', sans-serif;
+}
+
+/* Custom scrollbar for an elegant look matching Stitch */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C0CFDB;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3E88B0;
+}
+
+/* ── Polished rounded <select> dropdowns (matching workspace switcher style) ── */
+.table-container select {
+  appearance: base-select;
+  background-image: none;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+}
+
+.table-container select:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.table-container select:focus {
+  border-color: #3E88B0;
+  box-shadow: 0 0 0 3px rgba(62, 136, 176, 0.15);
+}
+
+/* Rounded dropdown popup panel */
+.table-container select::picker(select) {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: white;
+  margin-top: 4px;
+}
+
+/* Rounded option items */
+.table-container select option {
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: background 0.1s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.table-container select option:hover {
+  background: #f0f7fb;
+}
+
+.table-container select option:checked {
+  background: #e0f0f8;
+  font-weight: 600;
+}
+
+/* ── Dark mode ── */
+@media (prefers-color-scheme: dark) {
+  .table-container select {
+    border-color: #374151;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .table-container select:hover {
+    border-color: #4b5563;
+  }
+
+  .table-container select:focus {
+    border-color: #3E88B0;
+    box-shadow: 0 0 0 3px rgba(62, 136, 176, 0.25);
+  }
+
+  .table-container select::picker(select) {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .table-container select option:hover {
+    background: #374151;
+  }
+
+  .table-container select option:checked {
+    background: #1e3a4d;
+  }
+}
